@@ -13,16 +13,16 @@ This is the code that is executed after the Raspberry Pi starts up. It's the fil
 This is the code that controls the movement of the robot and is called only before an audio sample is taken to ensure the sound of the motors are not picked up by the microphone
 
 ### [audio.py](https://github.com/smGarc/Surround_Sound/blob/main/audio.py)
-This is the code that controls audio playing, recording, saving, and analysis. It is only played after a button is pressed that prevents the robot from moving and initiates analysis.
+This is the code that controls audio playing, recording, saving, and analysis. It is only played after a button is pressed that prevents the robot from moving and initiates recording.
 
 ## Resources Used
 
 ### Hardware
 
 - [Raspberry Pi Zero W](https://www.raspberrypi.com/products/raspberry-pi-zero-w/)
-- [L298N DC Motor Driver](https://components101.com/modules/l293n-motor-driver-module)
-- 12V DC Motors
-- 12V Power Supply (12V Battery Pack used)
+- [L298N DC Motor Driver](https://components101.com/modules/l293n-motor-driver-module) (x2)
+- 12V DC Motors (x4)
+- 12V Power Supply (12V Battery Pack used) (x2)
 - Jumper Wires
 
 ### Python Libraries
@@ -41,5 +41,12 @@ This is the code that controls audio playing, recording, saving, and analysis. I
 
 Contributed by Samantha Gordon '25
 
-
 ## Wiring Images
+
+### Motor Driver Connection (With one Motor)
+
+![Wide view of the motor, motor driver, battery pack, and Raspberry Pi all connected](https://i.imgur.com/pcNu8qb.jpg)
+
+![Connections on the Raspberry Pi](https://i.imgur.com/uqRkVxL.jpg)
+
+![Connections on the Motor Driver](https://i.imgur.com/OXPgkaT.jpg)
