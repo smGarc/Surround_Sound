@@ -31,9 +31,9 @@ while(1):
     print("Drive")
     if DIR == 1:
       GPIO.output(RIN1, GPIO.HIGH)
-      GPIO.output(RIN2, GPIO.LOW)
+      GPIO.output(RIN2, GPIO.HIGH)
       GPIO.output(LIN1, GPIO.HIGH)
-      GPIO.output(LIN2, GPIO.LOW)
+      GPIO.output(LIN2, GPIO.HIGH)
       print("Forward")
       x = 'z'
     else:
