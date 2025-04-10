@@ -3,19 +3,22 @@ from time import sleep
 
 RIN1 = 24
 RIN2 = 23
-REN = 25
+EN = 25
 LIN1 = 17
 LIN2 = 4
-LEN = 27
 DIR = 1
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(RIN1, GPIO.OUT)
 GPIO.setup(RIN2, GPIO.OUT)
-GPIO.setup(REN, GPIO.OUT)
+GPIO.setup(LIN1, GPIO.OUT)
+GPIO.setup(LIN2, GPIO.OUT)
+GPIO.setup(EN, GPIO.OUT)
 GPIO.output(RIN1, GPIO.LOW)
 GPIO.output(RIN2, GPIO.LOW)
-p = GPIO.PWM(REN, 1000)
+GPIO.output(LIN1, GPIO.LOW)
+GPIO.output(LIN2, GPIO.LOW)
+p = GPIO.PWM(EN, 1000)
 p.start(25)
 print("\n")
 print("Default speed and direction of motor is Slow and Forward...")
