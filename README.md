@@ -1,8 +1,16 @@
 # Surround Sound
 
-Stevens Institute of Technology 2025
+__Stevens Institute of Technology 2025__
 
-Raspberry Pi Software Guide by Simon Garcia '25
+__Raspberry Pi Software Guide by Simon Garcia '25__
+
+Surround Sound is a low-cost autonomous robot that utilizes a Raspberry Pi, a bluetooth speaker, a microphone, and mecanum wheels to measure the 3D sound field inside a room.
+
+Innovation Expo: 5/9/2025
+
+
+
+
 
 ## File Overview
 
@@ -15,7 +23,7 @@ This is the code that controls the movement of the robot and is called only befo
 ### [audio.py](https://github.com/smGarc/Surround_Sound/blob/main/audio.py)
 This is the code that controls audio playing, recording, saving, and analysis. It is only played after a button is pressed that prevents the robot from moving and initiates recording.
 
-## Resources Used
+## Resources Necessary
 
 ### Hardware
 
