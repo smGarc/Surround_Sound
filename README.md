@@ -49,7 +49,7 @@ This is the code that controls audio playing, recording, saving, and analysis. I
 
 Contributed by Samantha Gordon '25
 
-![Electrical Diagram of the motor connections](https://lh4.googleusercontent.com/rP3kNJiy57SLkCHzJMR6SYWtScTcTgqhsjm23tQOjYPeOMUJR63iOMxUl6WRpALJkhVxIvF9Cus4TjvcbRLS-9s)
+![Electrical Diagram of the motor connections](https://imgur.com/a/6CXnfaf)
 
 ## Wiring Images
 
