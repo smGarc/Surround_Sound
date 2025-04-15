@@ -1,11 +1,12 @@
 import RPi.GPIO as GPIO
 from time import sleep
+import sys, termios, tty, os
 
 RIN1 = 24
 RIN2 = 23
-EN = 25
 LIN1 = 17
 LIN2 = 4
+EN = 25
 DIR = 1
 
 GPIO.setmode(GPIO.BCM)
@@ -25,8 +26,19 @@ print("Default speed and direction of motor is Slow and Forward...")
 print("D-Drive, P-Park, F-Forward, B-Backwards, R-Turn Right, L-Turn Left,\nS-Slow, M-Medium, H-High, E-Exit")
 print("\n")
 
+def getch():
+  fd = sys.stdin.fileno()
+  old_settings = termios.tcgetattr(fd)
+  try:
+      tty.setraw(sys.stdin.fileno())
+      ch = sys.stdin.read(1)
+
+  finally:
+      termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+  return ch
+
 while(1):
-  x = input()
+  x = getch()
   if x == 'd':
     print("Drive")
     if DIR == 1:
@@ -48,6 +60,8 @@ while(1):
     print("Park")
     GPIO.output(RIN1, GPIO.LOW)
     GPIO.output(RIN2, GPIO.LOW)
+    GPIO.output(LIN1, GPIO.LOW)
+    GPIO.output(LIN2, GPIO.LOW)
     x = 'z'
 
   elif x == 'f':
