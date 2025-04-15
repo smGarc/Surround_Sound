@@ -1,8 +1,12 @@
 # Surround Sound
 
-Stevens Institute of Technology 2025
+__Stevens Institute of Technology 2025__
 
-Raspberry Pi Software Guide by Simon Garcia '25
+__Raspberry Pi Software Guide by Simon Garcia '25__
+
+Surround Sound is a low-cost autonomous robot that utilizes a Raspberry Pi, a bluetooth speaker, a microphone, and mecanum wheels to measure the 3D sound field inside a room.
+
+Innovation Expo: 5/9/2025
 
 ## File Overview
 
@@ -36,6 +40,9 @@ This is the code that controls audio playing, recording, saving, and analysis. I
 - [Handy Raspberry Pi Pin Chart](https://pinout.xyz/pinout/pin3_gpio2/)
 - [Raspberry Pi L298N Interface Tutorial | Control a DC Motor with L298N and Raspberry Pi](https://www.electronicshub.org/raspberry-pi-l298n-interface-tutorial-control-dc-motor-l298n-raspberry-pi/)
 - [Creating a new folder with python file](https://stackoverflow.com/questions/1274405/how-to-create-new-folder)
+- [Setting up a game controller for Raspberry Pi](https://pimylifeup.com/xbox-controllers-raspberry-pi/)
+- [Using Mechanum wheels with game controller](https://gm0.org/en/latest/docs/software/tutorials/mecanum-drive.html#robot-centric-final-sample-code)
+- [Mechanum Omnidirectional Robot with Raspberry Pi](https://youtu.be/_L4AiG7WWLs?t=546)
 
 ## Wiring Diagrams
 
