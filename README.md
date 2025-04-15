@@ -19,7 +19,7 @@ This is the code that controls the movement of the robot and is called only befo
 ### [audio.py](https://github.com/smGarc/Surround_Sound/blob/main/audio.py)
 This is the code that controls audio playing, recording, saving, and analysis. It is only played after a button is pressed that prevents the robot from moving and initiates recording.
 
-## Resources Used
+## Resources Necessary
 
 ### Hardware
 
