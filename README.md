@@ -43,6 +43,7 @@ This is the code that controls audio playing, recording, saving, and analysis. I
 - [Setting up a game controller for Raspberry Pi](https://pimylifeup.com/xbox-controllers-raspberry-pi/)
 - [Using Mechanum wheels with game controller](https://gm0.org/en/latest/docs/software/tutorials/mecanum-drive.html#robot-centric-final-sample-code)
 - [Mechanum Omnidirectional Robot with Raspberry Pi](https://youtu.be/_L4AiG7WWLs?t=546)
+- [RC Keyboard Example](https://github.com/recantha/EduKit3-RC-Keyboard/blob/master/rc_keyboard.py)
 
 ## Wiring Diagrams
 
