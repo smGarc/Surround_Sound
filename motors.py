@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 from time import sleep
-import sys, termios, tty, os
+import sys, termios, tty, os, keyboard
 
 RIN1 = 24
 RIN2 = 23
