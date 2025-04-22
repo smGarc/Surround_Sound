@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
-import sys, termios, tty, os, keyboard
+from pynput import keyboard
+from pynput.keyboard import Key, KeyCode
 
 RIN1 = 24
 RIN2 = 23
@@ -32,8 +33,8 @@ def resetMotors():
   GPIO.output(LIN1, GPIO.LOW)
   GPIO.output(LIN2, GPIO.LOW)
 
-while(1):
-  if keyboard.is_pressed('up'):
+def on_key_press(key):
+  if key == Key.up:
     print("Forward")
     GPIO.output(RIN1, GPIO.HIGH)
     GPIO.output(RIN2, GPIO.LOW)
@@ -41,7 +42,7 @@ while(1):
     GPIO.output(LIN2, GPIO.LOW)
     resetMotors()
 
-  elif keyboard.is_pressed('down'):
+  elif key == Key.down:
     print("Backwards")
     GPIO.output(RIN1, GPIO.LOW)
     GPIO.output(RIN2, GPIO.HIGH)
@@ -49,7 +50,7 @@ while(1):
     GPIO.output(LIN2, GPIO.HIGH)
     resetMotors()
 
-  elif keyboard.is_pressed('right'):
+  elif key == Key.right:
     print("Turn Right")
     GPIO.output(RIN1, GPIO.LOW)
     GPIO.output(RIN2, GPIO.HIGH)
@@ -57,28 +58,31 @@ while(1):
     GPIO.output(LIN2, GPIO.LOW)
     resetMotors()
 
-  elif keyboard.is_pressed('left'):
+  elif key == Key.left:
     print("Turn Left")
     GPIO.output(RIN1, GPIO.LOW)
     GPIO.output(RIN2, GPIO.LOW)
     GPIO.output(LIN1, GPIO.HIGH)
     GPIO.output(LIN2, GPIO.HIGH)
 
-  elif keyboard.is_pressed('s'):
+  elif key == KeyCode(char="s"):
     print("Slow")
     p.ChangeDutyCycle(25)
     x = 'z'
 
-  elif keyboard.is_pressed('d'):
+  elif key == KeyCode(char="d"):
     print("Medium")
     p.ChangeDutyCycle(50)
     x = 'z'
 
-  elif keyboard.is_pressed('f'):
+  elif key == KeyCode(char="f"):
     print("Fast")
     p.ChangeDutyCycle(75)
     x = 'z'
 
-  elif keyboard.is_pressed('e'):
+  elif key == KeyCode(char="e"):
     GPIO.cleanup()
-    break
+    quit()
+
+with keyboard.Listener(on_release=on_key_press) as listener:
+  listener.join()
