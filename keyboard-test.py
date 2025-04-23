@@ -1,24 +1,51 @@
-from pynput import keyboard
-from pynput.keyboard import Key, KeyCode
+from time import sleep
+import sys, termios, tty, os
 
-def on_key_press(key):
-  if key == Key.up:
+print("\n")
+print("Default speed and direction of motor is Slow and Forward...")
+print("W-Forward, A-Left, S-Backward, D-Left\nZ-Slow, X-Medium, C-High, E-Exit")
+print("\n")
+
+def getch():
+  fd = sys.stdin.fileno()
+  old_settings = termios.tcgetattr(fd)
+  try:
+      tty.setraw(sys.stdin.fileno())
+      ch = sys.stdin.read(1)
+
+  finally:
+      termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+  return ch
+
+while(1):
+  x = getch()
+  if x == 'w':
     print("Forward")
+    x = 'p'
 
-  elif key == Key.down:
+  elif x == 's':
     print("Backwards")
+    x = 'p'
 
-  elif key == Key.right:
+  elif x == 'a':
     print("Turn Right")
+    x = 'p'
 
-  elif key == Key.left:
+  elif x == 'd':
     print("Turn Left")
+    x = 'p'
 
-  elif key == KeyCode(char='a'):
-    print("Low")
+  elif x == 'z':
+    print("Slow")
+    x = 'p'
 
-  elif key == KeyCode(char='e'):
+  elif x == 'x':
+    print("Medium")
+    x = 'p'
+
+  elif x == 'c':
+    print("Fast")
+    x = 'p'
+
+  elif x == 'e':
     quit()
-
-with keyboard.Listener(on_release=on_key_press) as listener:
-  listener.join()
