@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 from time import sleep
-import sys, termios, tty, os, keyboard
+import sys, termios, tty, os
 
 RIN1 = 24
 RIN2 = 23
@@ -23,7 +23,7 @@ p = GPIO.PWM(EN, 1000)
 p.start(25)
 print("\n")
 print("Default speed and direction of motor is Slow and Forward...")
-print("D-Drive, P-Park, F-Forward, B-Backwards, R-Turn Right, L-Turn Left,\nS-Slow, M-Medium, H-High, E-Exit")
+print("W-Forward, A-Left, S-Backward, D-Left\nZ-Slow, X-Medium, C-High, E-Exit")
 print("\n")
 
 def getch():
@@ -39,7 +39,7 @@ def getch():
 
 while(1):
   x = getch()
-  if x == 'd':
+  if x == 'w':
     print("Drive")
     if DIR == 1:
       GPIO.output(RIN1, GPIO.HIGH)

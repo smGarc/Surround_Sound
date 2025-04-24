@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-from time import sleep
+import time
 import sys, termios, tty, os
 
 RIN1 = 24
@@ -9,6 +9,7 @@ LIN2 = 4
 EN = 25
 DIR = 1
 
+GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(RIN1, GPIO.OUT)
 GPIO.setup(RIN2, GPIO.OUT)
@@ -51,7 +52,6 @@ while(1):
     GPIO.output(RIN2, GPIO.LOW)
     GPIO.output(LIN1, GPIO.HIGH)
     GPIO.output(LIN2, GPIO.LOW)
-    resetMotors()
     x = 'p'
 
   elif x == 's':
@@ -60,7 +60,6 @@ while(1):
     GPIO.output(RIN2, GPIO.HIGH)
     GPIO.output(LIN1, GPIO.LOW)
     GPIO.output(LIN2, GPIO.HIGH)
-    resetMotors()
     x = 'p'
 
   elif x == 'a':
@@ -69,7 +68,6 @@ while(1):
     GPIO.output(RIN2, GPIO.HIGH)
     GPIO.output(LIN1, GPIO.LOW)
     GPIO.output(LIN2, GPIO.LOW)
-    resetMotors()
     x = 'p'
 
   elif x == 'd':
@@ -78,7 +76,6 @@ while(1):
     GPIO.output(RIN2, GPIO.LOW)
     GPIO.output(LIN1, GPIO.HIGH)
     GPIO.output(LIN2, GPIO.HIGH)
-    resetMotors()
     x = 'p'
 
   elif x == 'z':
