@@ -7,9 +7,11 @@ import audio
 on = True
 audioFiles = []
 while on:
-  motors()
+  print("Calling motors.drive()...")
+  motors.drive()
+  print("Calling audio.play()...")
   audio.play()
-  audioFiles.append(audio.record())
+  # audioFiles.append(audio.record())
 
 # movement should not be available until audio recording is finished,
 # so that movement sounds do not corrupt audio files.

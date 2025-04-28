@@ -44,64 +44,65 @@ def resetMotors():
   GPIO.output(LIN1, GPIO.LOW)
   GPIO.output(LIN2, GPIO.LOW)
 
-while(1):
-  x = getch()
+def drive():
+  while(1):
+    x = getch()
+    
+    if x == 'w':
+      print("Forward")
+      GPIO.output(RIN1, GPIO.HIGH)
+      GPIO.output(RIN2, GPIO.LOW)
+      GPIO.output(LIN1, GPIO.HIGH)
+      GPIO.output(LIN2, GPIO.LOW)
+      x = 'p'
 
-  if x == 'w':
-    print("Forward")
-    GPIO.output(RIN1, GPIO.HIGH)
-    GPIO.output(RIN2, GPIO.LOW)
-    GPIO.output(LIN1, GPIO.HIGH)
-    GPIO.output(LIN2, GPIO.LOW)
-    x = 'p'
+    elif x == 's':
+      print("Backwards")
+      GPIO.output(RIN1, GPIO.LOW)
+      GPIO.output(RIN2, GPIO.HIGH)
+      GPIO.output(LIN1, GPIO.LOW)
+      GPIO.output(LIN2, GPIO.HIGH)
+      x = 'p'
 
-  elif x == 's':
-    print("Backwards")
-    GPIO.output(RIN1, GPIO.LOW)
-    GPIO.output(RIN2, GPIO.HIGH)
-    GPIO.output(LIN1, GPIO.LOW)
-    GPIO.output(LIN2, GPIO.HIGH)
-    x = 'p'
+    elif x == 'a':
+      print("Turn Right")
+      GPIO.output(RIN1, GPIO.LOW)
+      GPIO.output(RIN2, GPIO.HIGH)
+      GPIO.output(LIN1, GPIO.LOW)
+      GPIO.output(LIN2, GPIO.LOW)
+      x = 'p'
 
-  elif x == 'a':
-    print("Turn Right")
-    GPIO.output(RIN1, GPIO.LOW)
-    GPIO.output(RIN2, GPIO.HIGH)
-    GPIO.output(LIN1, GPIO.LOW)
-    GPIO.output(LIN2, GPIO.LOW)
-    x = 'p'
+    elif x == 'd':
+      print("Turn Left")
+      GPIO.output(RIN1, GPIO.LOW)
+      GPIO.output(RIN2, GPIO.LOW)
+      GPIO.output(LIN1, GPIO.HIGH)
+      GPIO.output(LIN2, GPIO.HIGH)
+      x = 'p'
 
-  elif x == 'd':
-    print("Turn Left")
-    GPIO.output(RIN1, GPIO.LOW)
-    GPIO.output(RIN2, GPIO.LOW)
-    GPIO.output(LIN1, GPIO.HIGH)
-    GPIO.output(LIN2, GPIO.HIGH)
-    x = 'p'
+    elif x == 'q':
+      print("Stop")
+      resetMotors()
 
-  elif x == 'q':
-    print("Stop")
-    resetMotors()
+    elif x == 'z':
+      print("Slow")
+      p.ChangeDutyCycle(25)
+      x = 'p'
 
-  elif x == 'z':
-    print("Slow")
-    p.ChangeDutyCycle(25)
-    x = 'p'
+    elif x == 'x':
+      print("Medium")
+      p.ChangeDutyCycle(50)
+      x = 'p'
 
-  elif x == 'x':
-    print("Medium")
-    p.ChangeDutyCycle(50)
-    x = 'p'
+    elif x == 'c':
+      print("Fast")
+      p.ChangeDutyCycle(75)
+      x = 'p'
 
-  elif x == 'c':
-    print("Fast")
-    p.ChangeDutyCycle(75)
-    x = 'p'
-
-  elif x == 'e':
-    GPIO.cleanup()
-    quit()
-  
-  else:
-    print("Stop")
-    resetMotors()
+    elif x == 'e':
+      GPIO.cleanup()
+      return
+    
+    else:
+      print("Stop")
+      resetMotors()
