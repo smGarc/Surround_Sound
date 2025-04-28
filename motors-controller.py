@@ -46,7 +46,10 @@ def resetMotors():
 
 while(1):
   x = getch()
-  resetMotors()
+  
+  while x == 'p':
+    resetMotors()
+
   while x == 'w':
     print("Forward")
     GPIO.output(RIN1, GPIO.HIGH)
@@ -54,7 +57,6 @@ while(1):
     GPIO.output(LIN1, GPIO.HIGH)
     GPIO.output(LIN2, GPIO.LOW)
     x = 'p'
-  resetMotors()
 
   while x == 's':
     print("Backwards")
@@ -63,7 +65,6 @@ while(1):
     GPIO.output(LIN1, GPIO.LOW)
     GPIO.output(LIN2, GPIO.HIGH)
     x = 'p'
-  resetMotors()
 
   while x == 'a':
     print("Turn Right")
@@ -72,7 +73,6 @@ while(1):
     GPIO.output(LIN1, GPIO.LOW)
     GPIO.output(LIN2, GPIO.LOW)
     x = 'p'
-  resetMotors()
 
   while x == 'd':
     print("Turn Left")
@@ -81,7 +81,6 @@ while(1):
     GPIO.output(LIN1, GPIO.HIGH)
     GPIO.output(LIN2, GPIO.HIGH)
     x = 'p'
-  resetMotors()
 
   if x == 'z':
     print("Slow")
