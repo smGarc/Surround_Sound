@@ -42,7 +42,7 @@ def drive():
   p.start(25)
   print("\n")
   print("Default speed and direction of motor is Slow and Forward...")
-  print("W-Forward, A-Left, S-Backward, D-Left\nZ-Slow, X-Medium, C-High, E-Exit")
+  print("W-Forward, A-Left, S-Backward, D-Left\nZ-Slow, X-Medium, C-High, E-Exit\nF-Finish Collecting Data and Terminate Program")
   print("\n")
   while(1):
     x = getch()
@@ -102,6 +102,10 @@ def drive():
       GPIO.cleanup()
       return
     
+    elif x == 'f':
+      GPIO.cleanup()
+      quit()
+
     else:
       print("Stop")
       resetMotors()
