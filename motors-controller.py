@@ -47,11 +47,7 @@ def resetMotors():
 while(1):
   x = getch()
 
-  if x == 'p':
-    print("Stop")
-    resetMotors()
-
-  elif x == 'w':
+  if x == 'w':
     print("Forward")
     GPIO.output(RIN1, GPIO.HIGH)
     GPIO.output(RIN2, GPIO.LOW)
@@ -82,6 +78,10 @@ while(1):
     GPIO.output(LIN1, GPIO.HIGH)
     GPIO.output(LIN2, GPIO.HIGH)
     x = 'p'
+
+  elif x == 'q':
+    print("Stop")
+    resetMotors()
 
   elif x == 'z':
     print("Slow")
