@@ -11,12 +11,15 @@ Innovation Expo: 5/9/2025
 ## File Overview
 
 ### [main.py](https://github.com/smGarc/Surround_Sound/blob/main/main.py)
+
 This is the code that is executed after the Raspberry Pi starts up. It's the file that calls the other files when the time to call them arises.
 
 ### [motors.py](https://github.com/smGarc/Surround_Sound/blob/main/motors.py)
+
 This is the code that controls the movement of the robot and is called only before an audio sample is taken to ensure the sound of the motors are not picked up by the microphone
 
 ### [audio.py](https://github.com/smGarc/Surround_Sound/blob/main/audio.py)
+
 This is the code that controls audio playing, recording, saving, and analysis. It is only played after a button is pressed that prevents the robot from moving and initiates recording.
 
 ## Resources Necessary
