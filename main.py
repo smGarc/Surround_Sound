@@ -7,7 +7,7 @@ import audio
 on = True
 audioFiles = []
 while on:
-  motors.drive()
+  motors()
   audio.play()
   audioFiles.append(audio.record())
 
