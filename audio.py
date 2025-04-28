@@ -6,4 +6,5 @@ from playsound import playsound
 #   p = pyaudio.PyAudio()
 
 def play():
+  print("Playing sound...")
   playsound('600Hz.mp3')
