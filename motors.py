@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-from time import sleep
+import time
 import sys, termios, tty, os
 
 RIN1 = 24
@@ -9,6 +9,7 @@ LIN2 = 4
 EN = 25
 DIR = 1
 
+GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(RIN1, GPIO.OUT)
 GPIO.setup(RIN2, GPIO.OUT)
@@ -37,84 +38,70 @@ def getch():
       termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
   return ch
 
+def resetMotors():
+  GPIO.output(RIN1, GPIO.LOW)
+  GPIO.output(RIN2, GPIO.LOW)
+  GPIO.output(LIN1, GPIO.LOW)
+  GPIO.output(LIN2, GPIO.LOW)
+
 while(1):
   x = getch()
+
   if x == 'w':
-    print("Drive")
-    if DIR == 1:
-      GPIO.output(RIN1, GPIO.HIGH)
-      GPIO.output(RIN2, GPIO.LOW)
-      GPIO.output(LIN1, GPIO.HIGH)
-      GPIO.output(LIN2, GPIO.LOW)
-      print("Forward")
-      x = 'z'
-    else:
-      GPIO.output(RIN1, GPIO.LOW)
-      GPIO.output(RIN2, GPIO.HIGH)
-      GPIO.output(LIN1, GPIO.LOW)
-      GPIO.output(LIN2, GPIO.HIGH)
-      print("Backward")
-      x = 'z'
-
-  elif x == 'p':
-    print("Park")
-    GPIO.output(RIN1, GPIO.LOW)
-    GPIO.output(RIN2, GPIO.LOW)
-    GPIO.output(LIN1, GPIO.LOW)
-    GPIO.output(LIN2, GPIO.LOW)
-    x = 'z'
-
-  elif x == 'f':
     print("Forward")
     GPIO.output(RIN1, GPIO.HIGH)
     GPIO.output(RIN2, GPIO.LOW)
     GPIO.output(LIN1, GPIO.HIGH)
     GPIO.output(LIN2, GPIO.LOW)
-    DIR = 1
-    x = 'z'
+    x = 'p'
 
-  elif x == 'b':
+  elif x == 's':
     print("Backwards")
     GPIO.output(RIN1, GPIO.LOW)
     GPIO.output(RIN2, GPIO.HIGH)
     GPIO.output(LIN1, GPIO.LOW)
     GPIO.output(LIN2, GPIO.HIGH)
-    DIR = 0
-    x = 'z'
+    x = 'p'
 
-  elif x == 'r':
+  elif x == 'a':
     print("Turn Right")
     GPIO.output(RIN1, GPIO.LOW)
     GPIO.output(RIN2, GPIO.HIGH)
     GPIO.output(LIN1, GPIO.LOW)
     GPIO.output(LIN2, GPIO.LOW)
+    x = 'p'
 
-  elif x == 'l':
+  elif x == 'd':
     print("Turn Left")
     GPIO.output(RIN1, GPIO.LOW)
     GPIO.output(RIN2, GPIO.LOW)
     GPIO.output(LIN1, GPIO.HIGH)
     GPIO.output(LIN2, GPIO.HIGH)
+    x = 'p'
 
-  elif x == 's':
-    print("Low")
+  elif x == 'q':
+    print("Stop")
+    resetMotors()
+
+  elif x == 'z':
+    print("Slow")
     p.ChangeDutyCycle(25)
-    x = 'z'
+    x = 'p'
 
-  elif x == 'm':
+  elif x == 'x':
     print("Medium")
     p.ChangeDutyCycle(50)
-    x = 'z'
+    x = 'p'
 
-  elif x == 'h':
-    print("High")
+  elif x == 'c':
+    print("Fast")
     p.ChangeDutyCycle(75)
-    x = 'z'
+    x = 'p'
 
   elif x == 'e':
     GPIO.cleanup()
-    break
-
+    quit()
+  
   else:
-    print("Wrong command")
-    print("Please enter a correct command to continue")
+    print("Stop")
+    resetMotors()
