@@ -42,7 +42,6 @@ def drive():
   # Start
   p = GPIO.PWM(EN, 1000)
   p.start(25)
-  print("\n")
 
   # Instructions... Default speed is slow
   print("W-Forward, A-Left, S-Backward, D-Left, Q-Stop\nZ-Slow, X-Medium, C-High, E-Exit Driving Mode and Collect Data\nF-Finish/Terminate Program")
@@ -107,8 +106,8 @@ def drive():
       return
     
     elif x == 'f':
-      GPIO.cleanup()
       resetMotors()
+      GPIO.cleanup()
       quit()
 
     else:
