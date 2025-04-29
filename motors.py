@@ -44,7 +44,7 @@ def drive():
   p.start(25)
 
   # Instructions... Default speed is slow
-  print("W-Forward, A-Left, S-Backward, D-Left, Q-Stop\nZ-Slow, X-Medium, C-High, E-Exit Driving Mode and Collect Data\nF-Finish Collecting Data and Terminate Program")
+  print("\nW-Forward, A-Left, S-Backward, D-Left, Q-Stop\nZ-Slow, X-Medium, C-High, E-Exit Driving Mode and Collect Data\nF-Finish Collecting Data and Terminate Program")
   print("\n")
 
   while(1):
