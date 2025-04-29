@@ -4,15 +4,14 @@ import motors
 # sound playing, recording, & analysis file
 import audio
 
-on = True
 audioFiles = []
 print("Enter room name: ")
 room = input()
-while on:
+while True:
   print("Calling motors.drive()...")
   motors.drive()
   print("Calling audio.record()...")
   audio.record(room)
 
-# movement should not be available until audio recording is finished,
-# so that movement sounds do not corrupt audio files.
+# Movement should not be available until audio recording is finished,
+# So that movement sounds do not corrupt audio files.
