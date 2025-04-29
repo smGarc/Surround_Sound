@@ -8,9 +8,9 @@ audioFiles = []
 print("Enter room name: ")
 room = input()
 while True:
-  print("Calling motors.drive()...")
+  print("\nCalling motors.drive()...")
   motors.drive()
-  print("Calling audio.record()...")
+  print("\nCalling audio.record()...")
   audio.record(room)
 
 # Movement should not be available until audio recording is finished,
