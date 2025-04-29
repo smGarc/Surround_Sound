@@ -27,7 +27,7 @@ def resetMotors():
   GPIO.output(LIN2, GPIO.LOW)
 
 def drive():
-  GPIO.cleanup()
+  # Pin Selection
   GPIO.setmode(GPIO.BCM)
   GPIO.setup(RIN1, GPIO.OUT)
   GPIO.setup(RIN2, GPIO.OUT)
@@ -38,12 +38,16 @@ def drive():
   GPIO.output(RIN2, GPIO.LOW)
   GPIO.output(LIN1, GPIO.LOW)
   GPIO.output(LIN2, GPIO.LOW)
+
+  # Start
   p = GPIO.PWM(EN, 1000)
   p.start(25)
   print("\n")
-  print("Default speed and direction of motor is Slow and Forward...")
-  print("W-Forward, A-Left, S-Backward, D-Left\nZ-Slow, X-Medium, C-High, E-Exit\nF-Finish Collecting Data and Terminate Program")
+
+  # Instructions... Default speed is slow
+  print("W-Forward, A-Left, S-Backward, D-Left, Q-Stop\nZ-Slow, X-Medium, C-High, E-Exit Driving Mode and Collect Data\nF-Finish/Terminate Program")
   print("\n")
+
   while(1):
     x = getch()
 
@@ -99,13 +103,14 @@ def drive():
       x = 'p'
 
     elif x == 'e':
-      GPIO.cleanup()
+      resetMotors()
       return
     
     elif x == 'f':
       GPIO.cleanup()
+      resetMotors()
       quit()
 
     else:
-      print("Stop")
+      print("Incorrect input")
       resetMotors()
