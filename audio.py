@@ -13,7 +13,7 @@ def record(room):
   sample_format = pyaudio.paInt16  # 16 bits per sample
   channels = 2
   fs = 44100  # Record at 44100 samples per second
-  seconds = 7
+  seconds = 10
 
   current_time = str(datetime.now())
   current_time = current_time.replace(' ', '_')
