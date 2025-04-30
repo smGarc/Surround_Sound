@@ -68,7 +68,7 @@ def drive():
 
     elif x == 'a':
       print("Turn Right")
-      GPIO.output(RIN1, GPIO.LOW)
+      GPIO.output(RIN1, GPIO.HIGH)
       GPIO.output(RIN2, GPIO.HIGH)
       GPIO.output(LIN1, GPIO.LOW)
       GPIO.output(LIN2, GPIO.LOW)
