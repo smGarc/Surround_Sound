@@ -50,16 +50,16 @@ def drive():
   while(1):
     x = getch()
 
-    if x == 'w':
-      print("Forward")
+    if x == 's':
+      print("Backward")
       GPIO.output(RIN1, GPIO.HIGH)
       GPIO.output(RIN2, GPIO.LOW)
       GPIO.output(LIN1, GPIO.HIGH)
       GPIO.output(LIN2, GPIO.LOW)
       x = 'p'
 
-    elif x == 's':
-      print("Backwards")
+    elif x == 'w':
+      print("Forward")
       GPIO.output(RIN1, GPIO.LOW)
       GPIO.output(RIN2, GPIO.HIGH)
       GPIO.output(LIN1, GPIO.LOW)
@@ -78,7 +78,7 @@ def drive():
       print("Turn Right")
       GPIO.output(RIN1, GPIO.LOW)
       GPIO.output(RIN2, GPIO.LOW)
-      GPIO.output(LIN1, GPIO.HIGH)
+      GPIO.output(LIN1, GPIO.LOW)
       GPIO.output(LIN2, GPIO.HIGH)
       x = 'p'
 
